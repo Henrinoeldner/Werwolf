@@ -27,7 +27,5 @@ public class Character {
         Leben-=1;
     }
 
-    //test Henri kann keine Rechtschreibung und ist Dumm
-    //und Hendrik auch
 
 }

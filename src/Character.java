@@ -13,12 +13,10 @@ public class Character {
     public String Liebespatner;// merkt sich, wer der Liebespatner ist.
     public String Schlafwandlerin; //merkt sich, bei wem sich die Schlafwandlerin befindet
     public int Stearke;//Gibt die steake der Karte an
-
     // sabotirt setzt die variable Sabotirt auf den mitgegebnenen @Parameter
     public void sabotirt(boolean pIstSabotirt){
      Sabotirt=pIstSabotirt;
     }
-
     //getLeben gibt die Variable Leben zurueck
     public int getLeben(){
         return Leben;
@@ -26,6 +24,30 @@ public class Character {
     public void changeleben(){
         Leben-=1;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }

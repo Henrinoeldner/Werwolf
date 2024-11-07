@@ -13,12 +13,11 @@ public class Character {
     public String Liebespatner;// merkt sich, wer der Liebespatner ist.
     public String Schlafwandlerin; //merkt sich, bei wem sich die Schlafwandlerin befindet
     public int Stearke;//Gibt die steake der Karte an
-
     // sabotirt setzt die variable Sabotirt auf den mitgegebnenen @Parameter
+    public boolean Angeklagt;
     public void sabotirt(boolean pIstSabotirt){
      Sabotirt=pIstSabotirt;
     }
-
     //getLeben gibt die Variable Leben zurueck
     public int getLeben(){
         return Leben;
@@ -26,6 +25,77 @@ public class Character {
     public void changeleben(){
         Leben-=1;
     }
+
+    public int getTeam(){
+        return Team;
+    }
+
+    public int getReinfolge(){
+        return Reinfolge;
+    }
+
+    public int getStimmen()
+    {return Stimmen; }
+
+    public void changeStimmen(){
+        Stimmen= Stimmen +1;
+    }
+
+    public void changeProtectet(){
+        Protectet = !Protectet;
+    }
+
+    public void changeGebissen(){
+        Gebissen =!Gebissen;
+    }
+
+    public boolean getGebissen(){
+        return Gebissen;
+    }
+
+    public void changeBuergemeister(){
+        Buegermeister=!Buegermeister;
+    }
+
+    public boolean getAngeklagter()
+    {
+       return Angeklagt;
+    }
+
+    public void changeAngeklagt()
+    {
+        Angeklagt =!Angeklagt;
+    }
+
+    public void setLiebespatner(String pLiebespartner)
+    {
+        Liebespatner = pLiebespartner;
+    }
+
+    public void changeClass(String pCharacter){
+        Classe =pCharacter;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }

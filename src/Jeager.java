@@ -1,7 +1,7 @@
-public class Verfluchter extends Character{
-    public Verfluchter(){
+public class Jeager extends Character{
+    public Jeager(){
         Leben=1;
-        Classe="Verluchter";
+        Classe="Jaeger";
         Team=1;
         Reinfolge=16;
     }

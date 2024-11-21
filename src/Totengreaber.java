@@ -1,9 +1,9 @@
 public class Totengreaber extends Character {
     public Totengreaber(){
         Leben=1;
-        Classe="Werwolf";
+        Classe="Totengreaber";
         Team=0;
-        Reinfolge=15;
+        Reinfolge=13;
     }
     public void Feahikeit(){
 

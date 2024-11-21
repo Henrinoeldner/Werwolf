@@ -3,7 +3,7 @@
 public abstract class Character {
     public int Leben; //Leben gibt die Anzahl der Leben wieder. Wenn die leben Null ereichen Stirbt der Chahrakter
     public String Classe; //Gibt an welche klasse (Werwolf, hexe,...) an
-    public int Team; //Team gibt an, welches Team der Charackter ist (werwolf:0,Dorfbewohner:1,Liebende:2,Vampir:3)
+    public int Team; //Team gibt an, welches Team der Charackter ist (werwolf:0,Dorfbewohner:1,Liebende:2,Vampir:3;Weißerwerwolf:4)
     public boolean Sabotirt;// wenn Sabotirt, dann kann feahikeit nicht benutzt werden
     public int Reinfolge;// Reinfolge bestimmt, wann die karte dran ist (Bsp: erst 1 dann 3 und dann 4)
     public int Stimmen; // Stimmen gibt an wie viele Leute bereits für diesen charakter geatimmt haben

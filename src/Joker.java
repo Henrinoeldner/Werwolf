@@ -3,7 +3,7 @@ public class Joker extends Character{
         Leben=1;
         Classe="HexenJeager";
         Team=1;
-        Reinfolge=3;
+        Reinfolge=2;
     }
     public void Feahikeit(){
 

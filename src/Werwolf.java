@@ -3,7 +3,7 @@ public class Werwolf extends Character{
         Leben=0;
         Classe="Werwolf";
         Team=0;
-        Reinfolge=16;
+        Reinfolge=9;
     }
     public void Feahikeit(){
 

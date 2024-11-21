@@ -7,10 +7,10 @@ public class Hexe extends Character {
         Leben=1;
         Classe="Hexe";
         Team=1;
-        Reinfolge=13;
+        Reinfolge=12;
     }
 
-    public void feahikeit(){
+    public void Feahikeit(){
 
     }
 }

@@ -3,7 +3,7 @@ public class HexenJeager extends Character {
         Leben=1;
         Classe="HexenJeager";
         Team=1;
-        Reinfolge=16;
+        Reinfolge=15;
     }
     public void Feahikeit(){
 

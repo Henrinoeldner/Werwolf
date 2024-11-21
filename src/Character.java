@@ -1,6 +1,6 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Character {
+public abstract class Character {
     public int Leben; //Leben gibt die Anzahl der Leben wieder. Wenn die leben Null ereichen Stirbt der Chahrakter
     public String Classe; //Gibt an welche klasse (Werwolf, hexe,...) an
     public int Team; //Team gibt an, welches Team der Charackter ist (werwolf:0,Dorfbewohner:1,Liebende:2,Vampir:3)
@@ -15,6 +15,8 @@ public class Character {
     public int Stearke;//Gibt die steake der Karte an
     // sabotirt setzt die variable Sabotirt auf den mitgegebnenen @Parameter
     public boolean Angeklagt;
+
+    public abstract void Feahikeit();
     public void sabotirt(boolean pIstSabotirt){
      Sabotirt=pIstSabotirt;
     }

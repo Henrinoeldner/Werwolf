@@ -1,6 +1,6 @@
 public class Werwolf extends Character{
     public Werwolf(){
-        Leben=1;
+        Leben=0;
         Classe="Werwolf";
         Team=0;
         Reinfolge=16;

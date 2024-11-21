@@ -3,9 +3,9 @@ public class Necromant extends Character{
         Leben=1;
         Classe="Necromant";
         Team=1;
-        Reinfolge=14;
+        Reinfolge=13;
     }
-    public void Faehikeit(){
+    public void Feahikeit(){
 
     }
 }

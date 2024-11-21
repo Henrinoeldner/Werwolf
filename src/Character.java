@@ -6,7 +6,7 @@ public abstract class Character {
     public int Team; //Team gibt an, welches Team der Charackter ist (werwolf:0,Dorfbewohner:1,Liebende:2,Vampir:3)
     public boolean Sabotirt;// wenn Sabotirt, dann kann feahikeit nicht benutzt werden
     public int Reinfolge;// Reinfolge bestimmt, wann die karte dran ist (Bsp: erst 1 dann 3 und dann 4)
-    public int Stimmen; // Stimmen gibt an wie viele Leute bereits für diesen charakter geatimmt haben
+    public int Stimmen; // Stimmen gibt an wie viele Leute bereits für diesen charakter gestimmt haben
     public boolean Protectet; // wenn Protecte stimmt, dann kann dieser Character in der Nacht nicht sterben
     public boolean Gebissen; // wenn alle gebissen wahr dann gewint der vampier zusätzlich muss team geander werden
     public boolean Buegermeister;// wenn Buegermeister wahr ist, hat diese Karte zwei stimmen auser bei unentschieden. Dann nur 1

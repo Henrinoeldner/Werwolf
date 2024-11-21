@@ -5,4 +5,7 @@ public class Dorfbewohner extends Character{
         Team=1;
         Reinfolge=15;
     }
+    public void Faehihkeit(){
+        ;
+    }
 }

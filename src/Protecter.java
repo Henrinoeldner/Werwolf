@@ -3,7 +3,7 @@ public class Protecter extends Character{
         Leben=1;
         Classe="Protecter";
         Team=1;
-        Reinfolge=7;
+        Reinfolge=6;
     }
     public void Feahikeit(){
 

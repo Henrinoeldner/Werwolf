@@ -3,7 +3,7 @@ public class Verfluchter extends Character{
         Leben=1;
         Classe="Verluchter";
         Team=1;
-        Reinfolge=16;
+        Reinfolge=15;
     }
     public void Feahikeit(){
 

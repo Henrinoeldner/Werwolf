@@ -4,7 +4,7 @@ public class Alterman extends Character{
       Leben=2;
       Classe="Alterman";
       Team=1;
-      Reinfolge=16;
+      Reinfolge=15;
     }
     public void Feahikeit(){
 

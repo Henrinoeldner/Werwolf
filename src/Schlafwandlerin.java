@@ -3,7 +3,7 @@ public class Schlafwandlerin extends Character{
         Leben=1;
         Classe="Schlafwandlerin";
         Team=1;
-        Reinfolge=5;
+        Reinfolge=4;
     }
     public void Feahikeit(){
 

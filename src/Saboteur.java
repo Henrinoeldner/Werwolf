@@ -3,7 +3,7 @@ public class Saboteur extends Character{
         Leben=1;
         Classe="Saboteur";
         Team=1;
-        Reinfolge=2;
+        Reinfolge=1;
     }
     public void Feahikeit(){
 

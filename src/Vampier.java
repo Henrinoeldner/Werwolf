@@ -3,7 +3,7 @@ public class Vampier extends Character{
         Leben=1;
         Classe="Vampier";
         Team=3;
-        Reinfolge=16;
+        Reinfolge=7;
     }
     public void Feahikeit(){
 

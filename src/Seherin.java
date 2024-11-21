@@ -3,7 +3,7 @@ public class Seherin extends Character{
         Leben=1;
         Classe="Seherin";
         Team=1;
-        Reinfolge=6;
+        Reinfolge=5;
     }
     public void Feahikeit(){
 

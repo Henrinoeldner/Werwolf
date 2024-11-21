@@ -3,7 +3,7 @@ public class Amor extends Character{
         Leben=1;
         Classe="Amor";
         Team=1;
-        Reinfolge=4;
+        Reinfolge=3;
     }
     public void Feahikeit(){
 

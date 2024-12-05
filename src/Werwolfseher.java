@@ -5,4 +5,8 @@ public class Werwolfseher extends Character{
         Team=0;
         Reinfolge=8;
     }
+
+    public void Feahikeit() {
+
+    }
 }

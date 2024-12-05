@@ -15,7 +15,11 @@ public abstract class Character {
     public int Stearke;//Gibt die steake der Karte an
     // sabotirt setzt die variable Sabotirt auf den mitgegebnenen @Parameter
     public boolean Angeklagt;
+    public int spieler;
 
+    public void setSpieler(int pspieler){spieler=pspieler;}
+
+    public int getSpieler(){return spieler;}
     public abstract void Feahikeit();
     public void sabotirt(boolean pIstSabotirt){
      Sabotirt=pIstSabotirt;

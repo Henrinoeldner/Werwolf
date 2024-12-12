@@ -42,22 +42,30 @@ public class Erzaehler {
 
           for(int i=0;i<anzahlwerwoelfe;i++){
                int speicher=(int)(Math.random()* moeglicheWerwolfcharacter.size());
-               spielendecharactere[i]=moeglicheWerwolfcharacter.get(speicher);
 
                //wenn die gewaelte charakter kein einfacher Werwolf ist, wird er aus der Liste der moeglichen Charakteren entfernt.
                if (speicher!=0) {
+                    spielendecharactere[i]=moeglicheWerwolfcharacter.get(speicher);
                     moeglicheWerwolfcharacter.remove(speicher);
+               }else{
+                    spielendecharactere[i]=new Werwolf();
                }
           }
           for(int i=anzahlwerwoelfe;i<spielendecharactere.length;i++){
                int speicher=(int)(Math.random()* moeglicheDorfbewohner.size());
-               spielendecharactere[i]=moeglicheDorfbewohner.get(speicher);
+
                //wenn die gewaelte charakter kein einfacher Werwolf ist, wird er aus der Liste der moeglichen Charakteren entfernt.
                if (speicher!=0) {
+                    spielendecharactere[i]=moeglicheDorfbewohner.get(speicher);
                     moeglicheDorfbewohner.remove(speicher);
+               }else{
+                    spielendecharactere[i]=new Dorfbewohner();
                }
           }
-          charackteremischen();
+          this.charackteremischen();
+          for(int i=0;i<spielendecharactere.length;i++){
+               spielendecharactere[i].setSpieler(i);
+          }
      }
      public void charackteremischen(){
           Character charecterspeicher;
@@ -67,5 +75,6 @@ public class Erzaehler {
                spielendecharactere[speicher]=spielendecharactere[i];
                spielendecharactere[i]=charecterspeicher;
           }
+
      }
 }

@@ -42,7 +42,6 @@ public class Erzaehler {
 
           for(int i=0;i<anzahlwerwoelfe;i++){
                int speicher=(int)(Math.random()* moeglicheWerwolfcharacter.size());
-
                //wenn die gewaelte charakter kein einfacher Werwolf ist, wird er aus der Liste der moeglichen Charakteren entfernt.
                if (speicher!=0) {
                     spielendecharactere[i]=moeglicheWerwolfcharacter.get(speicher);
@@ -51,9 +50,9 @@ public class Erzaehler {
                     spielendecharactere[i]=new Werwolf();
                }
           }
+
           for(int i=anzahlwerwoelfe;i<spielendecharactere.length;i++){
                int speicher=(int)(Math.random()* moeglicheDorfbewohner.size());
-
                //wenn die gewaelte charakter kein einfacher Werwolf ist, wird er aus der Liste der moeglichen Charakteren entfernt.
                if (speicher!=0) {
                     spielendecharactere[i]=moeglicheDorfbewohner.get(speicher);
@@ -66,6 +65,23 @@ public class Erzaehler {
           for(int i=0;i<spielendecharactere.length;i++){
                spielendecharactere[i].setSpieler(i);
           }
+          this.sotiren();
+     }
+     public void sotiren(){
+
+               Character vergleich;
+               for (int b = 0; b < spielendecharactere.length - 1; b++) {
+                    for (int i = 0; i < spielendecharactere.length - b - 1; i++) {
+                         if (spielendecharactere[i].getReinfolge() > spielendecharactere[i + 1].getReinfolge()) {
+                              //tausche der vergleichten zahlen
+                              vergleich = spielendecharactere[i];
+                              spielendecharactere[i] = spielendecharactere[i + 1];
+                              spielendecharactere[i + 1] = vergleich;
+
+                         }
+                    }
+               }
+
      }
      public void charackteremischen(){
           Character charecterspeicher;
@@ -74,6 +90,12 @@ public class Erzaehler {
                charecterspeicher=spielendecharactere[speicher];
                spielendecharactere[speicher]=spielendecharactere[i];
                spielendecharactere[i]=charecterspeicher;
+          }
+
+     }
+     public void spielen(){
+          for(int i=0;i<spielendecharactere.length;i++){
+               spielendecharactere[i].Feahikeit();
           }
 
      }

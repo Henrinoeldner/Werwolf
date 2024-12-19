@@ -4,8 +4,8 @@ import java.util.Random;
 
 public class Erzaehler {
      public Character[] spielendecharactere;
-     List<Character> moeglicheWerwolfcharacter;
-     List<Character> moeglicheDorfbewohner=new ArrayList<>();
+     public List<Character> moeglicheWerwolfcharacter;
+     List<Character> moeglicheDorfbewohner;
 
      public Erzaehler(int pAnzahanspielern){
           moeglicheWerwolfcharacter=new ArrayList<>();
@@ -24,7 +24,6 @@ public class Erzaehler {
           moeglicheDorfbewohner.add(new Hexe());
           moeglicheDorfbewohner.add(new HexenJeager());
           moeglicheDorfbewohner.add(new Jeager());
-          moeglicheDorfbewohner.add(new Joker());
           moeglicheDorfbewohner.add(new Necromant());
           moeglicheDorfbewohner.add(new Protecter());
           moeglicheDorfbewohner.add(new Saboteur());
@@ -33,8 +32,10 @@ public class Erzaehler {
           moeglicheDorfbewohner.add(new Totengreaber());
           moeglicheDorfbewohner.add(new Vampier());
           moeglicheDorfbewohner.add(new Verfluchter());
+          moeglicheDorfbewohner.add(new Joker(moeglicheWerwolfcharacter,moeglicheDorfbewohner));
 
      }
+     public Erzaehler(){}
 
      public void characktereerstellen(){
           //Sorgt fuer ein verheltnis zwischen Werwoelfen und Dorfbewohneren(ein werwolf fuer alle drei dorfbeohner)
@@ -95,7 +96,9 @@ public class Erzaehler {
      }
      public void spielen(){
           for(int i=0;i<spielendecharactere.length;i++){
-               spielendecharactere[i].Feahikeit();
+               if(spielendecharactere[i].getReinfolge()<15){
+                    spielendecharactere[i].Feahikeit();
+               }
           }
 
      }

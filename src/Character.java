@@ -1,5 +1,4 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.Scanner;
 public abstract class Character {
     public int Leben; //Leben gibt die Anzahl der Leben wieder. Wenn die leben Null ereichen Stirbt der Chahrakter
     public String Classe; //Gibt an welche klasse (Werwolf, hexe,...) an
@@ -81,6 +80,7 @@ public abstract class Character {
     public void changeClass(String pCharacter){
         Classe =pCharacter;
     }
+    public String getClasse(){return Classe;}
 
 
 

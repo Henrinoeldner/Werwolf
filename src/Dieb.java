@@ -7,6 +7,6 @@ public class Dieb extends Character{
     }
     public void Feahikeit(){
 
-        Reinfolge=16;
+        Reinfolge=15;
     }
 }

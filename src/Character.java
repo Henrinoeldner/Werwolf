@@ -20,8 +20,8 @@ public abstract class Character {
 
     public int getSpieler(){return spieler;}
     public abstract void Feahikeit();
-    public void sabotirt(boolean pIstSabotirt){
-     Sabotirt=pIstSabotirt;
+    public void sabotirt(){
+     Sabotirt=true;
     }
     //getLeben gibt die Variable Leben zurueck
     public int getLeben(){

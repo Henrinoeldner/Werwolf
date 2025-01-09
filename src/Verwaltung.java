@@ -20,7 +20,7 @@ public class Verwaltung {
             int option = scanner.nextInt();
             if (option == 1) {
                 Erzaehler erzaehler=new Erzaehler(5);
-                erzaehler.characktereerstellen();
+               erzaehler.spielen();
             }
         }
         }

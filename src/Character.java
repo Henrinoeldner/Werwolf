@@ -15,72 +15,93 @@ public abstract class Character {
     // sabotirt setzt die variable Sabotirt auf den mitgegebnenen @Parameter
     public boolean Angeklagt;
     public int spieler;
+    public Character[] spielendecharactere;
 
-    public void setSpieler(int pspieler){spieler=pspieler;}
-
-    public int getSpieler(){return spieler;}
-    public abstract void Feahikeit();
-    public void sabotirt(){
-     Sabotirt=true;
+    public void setSpieler(int pspieler) {
+        spieler = pspieler;
     }
+
+    public int getSpieler() {
+        return spieler;
+    }
+
+    public abstract void Feahikeit();
+
+    public void sabotirt() {
+        Sabotirt = true;
+    }
+
     //getLeben gibt die Variable Leben zurueck
-    public int getLeben(){
+    public int getLeben() {
         return Leben;
     }
-    public void changeleben(){
-        Leben-=1;
+
+    public void changeleben() {
+        Leben -= 1;
     }
 
-    public int getTeam(){
+    public int getTeam() {
         return Team;
     }
 
-    public int getReinfolge(){
+    public int getReinfolge() {
         return Reinfolge;
     }
 
-    public int getStimmen()
-    {return Stimmen; }
-
-    public void changeStimmen(){
-        Stimmen= Stimmen +1;
+    public int getStimmen() {
+        return Stimmen;
     }
 
-    public void changeProtectet(){
+    public void changeStimmen() {
+        Stimmen = Stimmen + 1;
+    }
+
+    public void changeProtectet() {
         Protectet = !Protectet;
     }
 
-    public void changeGebissen(){
-        Gebissen =!Gebissen;
+    public void changeGebissen() {
+        Gebissen = !Gebissen;
     }
 
-    public boolean getGebissen(){
+    public boolean getGebissen() {
         return Gebissen;
     }
 
-    public void changeBuergemeister(){
-        Buegermeister=!Buegermeister;
+    public void changeBuergemeister() {
+        Buegermeister = !Buegermeister;
     }
 
-    public boolean getAngeklagter()
-    {
-       return Angeklagt;
+    public boolean getAngeklagter() {
+        return Angeklagt;
     }
 
-    public void changeAngeklagt()
-    {
-        Angeklagt =!Angeklagt;
+    public void changeAngeklagt() {
+        Angeklagt = !Angeklagt;
     }
 
-    public void setLiebespatner(String pLiebespartner)
-    {
+    public void setLiebespatner(String pLiebespartner) {
         Liebespatner = pLiebespartner;
     }
 
-    public void changeClass(String pCharacter){
-        Classe =pCharacter;
+    public void changeClass(String pCharacter) {
+        Classe = pCharacter;
     }
-    public String getClasse(){return Classe;}
+
+    public String getClasse() {
+        return Classe;
+    }
+
+
+    public Character findspieler(int pSpieler) {
+        for (int i = 0; i < spielendecharactere.length; i++) {
+            if (spielendecharactere[i].getSpieler() == pSpieler) {
+                return spielendecharactere[i];
+            }
+        }
+        return spielendecharactere[spielendecharactere.length-1];
+    }
+}
 
 
 

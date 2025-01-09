@@ -3,18 +3,38 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Joker extends Character{
-    private Character neuerkaracter;
+    private Character neuercaracter;
     List<Character> moeglicheWerwolfcharacter;
     List<Character> moeglicheDorfbewohner;
     private boolean benutzt;
-    public Joker(List<Character> pList1,List<Character> pList2){
+    public Joker(){
+
         Leben=1;
         Classe="Joker";
         Team=1;
         Reinfolge=2;
         benutzt=false;
-        moeglicheWerwolfcharacter=pList1;
-        moeglicheDorfbewohner=pList2;
+        moeglicheWerwolfcharacter.add(new Werwolf());
+        moeglicheWerwolfcharacter.add(new BlinderWerwolf());
+        moeglicheWerwolfcharacter.add(new Weißerwerwolf());
+        moeglicheWerwolfcharacter.add(new Werwolfseher());
+
+
+        moeglicheDorfbewohner.add(new Dorfbewohner());
+        moeglicheDorfbewohner.add(new Alterman());
+        moeglicheDorfbewohner.add(new Amor());
+        moeglicheDorfbewohner.add(new Dieb());
+        moeglicheDorfbewohner.add(new Hexe());
+        moeglicheDorfbewohner.add(new HexenJeager());
+        moeglicheDorfbewohner.add(new Jeager());
+        moeglicheDorfbewohner.add(new Necromant());
+        moeglicheDorfbewohner.add(new Protecter());
+        moeglicheDorfbewohner.add(new Saboteur());
+        moeglicheDorfbewohner.add(new Schlafwandlerin());
+        moeglicheDorfbewohner.add(new Seherin());
+        moeglicheDorfbewohner.add(new Totengreaber());
+        moeglicheDorfbewohner.add(new Vampier());
+        moeglicheDorfbewohner.add(new Verfluchter());
     }
     public void Feahikeit(){
 
@@ -23,31 +43,31 @@ public class Joker extends Character{
 
         //Wenn die faehikeit des Jokers bereits benutzt wurde, wird die Faehikeit von dem neuen Charakter benutzt.
         if (benutzt){
-        neuerkaracter.Feahikeit();
+        neuercaracter.Feahikeit();
         }
         //Wenn die Feahikeit des Jokers noch nicht benutzt wird, wird ein neuer Charakter gewaehlt der spaeter benutzt wird
         else{
             System.out.println("Welchen Character moechtest du spielen?");
-            for(int i=0; i<4;i++){
+            for(int i=0; i<3;i++){
                 System.out.println("["+i+"] "+moeglicheWerwolfcharacter.get(i));
 
             }
-            for(int i=4; i< moeglicheDorfbewohner.size()+4;i++){
-                System.out.println("["+i+"] "+moeglicheWerwolfcharacter.get(i-4));
+            for(int i=3; i< moeglicheDorfbewohner.size()+2;i++){
+                System.out.println("["+i+"] "+moeglicheDorfbewohner.get(i-3));
 
             }
             option= scanner.nextInt();
 
             if (option<4){
-                neuerkaracter=moeglicheWerwolfcharacter.get(option);
+                neuercaracter= moeglicheWerwolfcharacter.get(option);
             }else{
-                neuerkaracter=moeglicheDorfbewohner.get(option-4);
+                neuercaracter=moeglicheDorfbewohner.get(option-4);
 
             }
-            Leben=neuerkaracter.getLeben();
-            Classe=neuerkaracter.getClasse();
-            Team=neuerkaracter.getTeam();
-            Reinfolge=neuerkaracter.getReinfolge();
+            Leben=neuercaracter.getLeben();
+            Classe=neuercaracter.getClasse();
+            Team=neuercaracter.getTeam();
+            Reinfolge=neuercaracter.getReinfolge();
         }
 
 

@@ -10,7 +10,7 @@ public class Erzaehler {
      public Erzaehler(int pAnzahanspielern){
           moeglicheWerwolfcharacter=new ArrayList<>();
           moeglicheDorfbewohner=new ArrayList<>();
-          spielendecharactere = new Character[pAnzahanspielern];
+          spielendecharactere = new Character[pAnzahanspielern+1];
           moeglicheWerwolfcharacter.add(new Werwolf());
           moeglicheWerwolfcharacter.add(new BlinderWerwolf());
           moeglicheWerwolfcharacter.add(new Weißerwerwolf());
@@ -32,7 +32,7 @@ public class Erzaehler {
           moeglicheDorfbewohner.add(new Totengreaber());
           moeglicheDorfbewohner.add(new Vampier());
           moeglicheDorfbewohner.add(new Verfluchter());
-          moeglicheDorfbewohner.add(new Joker(moeglicheWerwolfcharacter,moeglicheDorfbewohner));
+          moeglicheDorfbewohner.add(new Joker());
 
      }
      public Erzaehler(){}
@@ -40,7 +40,6 @@ public class Erzaehler {
      public void characktereerstellen(){
           //Sorgt fuer ein verheltnis zwischen Werwoelfen und Dorfbewohneren(ein werwolf fuer alle drei dorfbeohner)
           int anzahlwerwoelfe=(spielendecharactere.length-1)/3;
-
           for(int i=0;i<anzahlwerwoelfe;i++){
                int speicher=(int)(Math.random()* moeglicheWerwolfcharacter.size());
                //wenn die gewaelte charakter kein einfacher Werwolf ist, wird er aus der Liste der moeglichen Charakteren entfernt.
@@ -62,6 +61,7 @@ public class Erzaehler {
                     spielendecharactere[i]=new Dorfbewohner();
                }
           }
+
           this.charackteremischen();
           for(int i=0;i<spielendecharactere.length;i++){
                spielendecharactere[i].setSpieler(i);
@@ -95,6 +95,7 @@ public class Erzaehler {
 
      }
      public void spielen(){
+          this.characktereerstellen();
           for(int i=0;i<spielendecharactere.length;i++){
                if(spielendecharactere[i].getReinfolge()<15){
                     spielendecharactere[i].Feahikeit();

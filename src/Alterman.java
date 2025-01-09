@@ -7,7 +7,5 @@ public class Alterman extends Character{
       Reinfolge=15;
     }
     public void Feahikeit(){
-
-
     }
 }

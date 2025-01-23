@@ -7,7 +7,7 @@ public class Verwaltung {
     public static void main(String[] args) {
 
         new Verwaltung();
-        System.out.println("Herzlich willkommen zu Zeichenketten verschluesselerer!");
+
 
     }
 

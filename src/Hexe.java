@@ -1,6 +1,6 @@
 public class Hexe extends Character {
-    boolean Htrank;
-    boolean Ttrank;
+    private boolean Htrank;
+    private boolean Ttrank;
     public Hexe(){
         Htrank=true;
         Ttrank=true;

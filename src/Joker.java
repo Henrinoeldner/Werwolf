@@ -14,6 +14,8 @@ public class Joker extends Character{
         Team=1;
         Reinfolge=2;
         benutzt=false;
+        moeglicheWerwolfcharacter=new ArrayList<>();
+        moeglicheDorfbewohner=new ArrayList<>();
         moeglicheWerwolfcharacter.add(new Werwolf());
         moeglicheWerwolfcharacter.add(new BlinderWerwolf());
         moeglicheWerwolfcharacter.add(new Weißerwerwolf());

@@ -1,5 +1,6 @@
 import java.util.Scanner;
 public abstract class Character {
+    protected Scanner scanner=new Scanner(System.in);
     public int Leben; //Leben gibt die Anzahl der Leben wieder. Wenn die leben Null ereichen Stirbt der Chahrakter
     public String Classe; //Gibt an welche klasse (Werwolf, hexe,...) an
     public int Team; //Team gibt an, welches Team der Charackter ist (werwolf:0,Dorfbewohner:1,Liebende:2,Vampir:3;Weißerwerwolf:4)
@@ -9,7 +10,7 @@ public abstract class Character {
     public boolean Protectet; // wenn Protecte stimmt, dann kann dieser Character in der Nacht nicht sterben
     public boolean Gebissen; // wenn alle gebissen wahr dann gewint der vampier zusätzlich muss team geander werden
     public boolean Buegermeister;// wenn Buegermeister wahr ist, hat diese Karte zwei stimmen auser bei unentschieden. Dann nur 1
-    public String Liebespatner;// merkt sich, wer der Liebespatner ist.
+    public Character Liebespatner;// merkt sich, wer der Liebespatner ist.
     public String Schlafwandlerin; //merkt sich, bei wem sich die Schlafwandlerin befindet
     public int Stearke;//Gibt die steake der Karte an
     // sabotirt setzt die variable Sabotirt auf den mitgegebnenen @Parameter
@@ -42,6 +43,9 @@ public abstract class Character {
 
     public int getTeam() {
         return Team;
+    }
+    public void setTeam(int pTeam){
+       Team=pTeam;
     }
 
     public int getReinfolge() {
@@ -80,7 +84,7 @@ public abstract class Character {
         Angeklagt = !Angeklagt;
     }
 
-    public void setLiebespatner(String pLiebespartner) {
+    public void setLiebespatner(Character pLiebespartner) {
         Liebespatner = pLiebespartner;
     }
 
@@ -94,6 +98,7 @@ public abstract class Character {
 
 
     public Character findspieler(int pSpieler) {
+        this.spielendecharactere= Erzaehler.spielendecharactere;
         for (int i = 0; i < spielendecharactere.length; i++) {
             if (spielendecharactere[i].getSpieler() == pSpieler) {
                 return spielendecharactere[i];

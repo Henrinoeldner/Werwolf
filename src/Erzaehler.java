@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.Random;
 
 public class Erzaehler {
-     public Character[] spielendecharactere;
+     public static Character[] spielendecharactere;
      public List<Character> moeglicheWerwolfcharacter;
      List<Character> moeglicheDorfbewohner;
 
@@ -98,6 +98,7 @@ public class Erzaehler {
           this.characktereerstellen();
           for(int i=0;i<spielendecharactere.length;i++){
                if(spielendecharactere[i].getReinfolge()<15){
+                    System.out.println("Spieler "+spielendecharactere[i].getSpieler()+", du bist dran. Du bist "+ spielendecharactere[i].getClasse());
                     spielendecharactere[i].Feahikeit();
                }
           }

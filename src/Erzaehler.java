@@ -64,7 +64,7 @@ public class Erzaehler {
 
           this.charackteremischen();
           for(int i=0;i<spielendecharactere.length;i++){
-               spielendecharactere[i].setSpieler(i);
+               spielendecharactere[i].setSpieler(i+1);
           }
           this.sotiren();
      }
@@ -86,6 +86,7 @@ public class Erzaehler {
      }
      public void charackteremischen(){
           Character charecterspeicher;
+
           for(int i=0;i<spielendecharactere.length;i++){
                int speicher=(int)(Math.random()* spielendecharactere.length);
                charecterspeicher=spielendecharactere[speicher];
@@ -95,13 +96,26 @@ public class Erzaehler {
 
      }
      public void spielen(){
+          List<java.lang.Character> angeklagte= new ArrayList<>();
           this.characktereerstellen();
+          this.sotiren();
           for(int i=0;i<spielendecharactere.length;i++){
                if(spielendecharactere[i].getReinfolge()<15){
                     System.out.println("Spieler "+spielendecharactere[i].getSpieler()+", du bist dran. Du bist "+ spielendecharactere[i].getClasse());
                     spielendecharactere[i].Feahikeit();
                }
           }
-
+          for (int i=0;i<spielendecharactere.length;i++){
+               if (spielendecharactere[i].getLeben()<1){
+                    System.out.println("Spieler "+spielendecharactere[i].getSpieler()+" wurde getötet. Er war"+ spielendecharactere[i].getClass());
+                    //spielendecharactere[i].
+               }
+          }
+          System.out.println("Der Tag hat begonnen");
+          this.charackteremischen();
+          angeklagte.clear();
+          for (int i=0;i<spielendecharactere.length;i++){
+               spielendecharactere[i].anklagen();
+          }
      }
 }

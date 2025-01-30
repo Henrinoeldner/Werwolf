@@ -6,17 +6,22 @@ public class Amor extends Character{
         Reinfolge=3;
     }
     public void Feahikeit(){
-        System.out.println("Welchen spieler möchtest du verlieben?");
-        int gesuchterspieler =scanner.nextInt();
-        Character liebeEins=findspieler(gesuchterspieler);
-        System.out.println("mit welchen Spieler möchtest du ihn verlieben?");
-        gesuchterspieler=scanner.nextInt();
-        Character liebeZwei=findspieler(gesuchterspieler);
-        liebeEins.setLiebespatner(liebeZwei);
-        liebeZwei.setLiebespatner(liebeEins);
-        if (liebeEins.getTeam()!=liebeZwei.getTeam()){
-            liebeEins.setTeam(2);
-            liebeZwei.setTeam(2);
+        if (!Sabotirt) {
+            System.out.println("Welchen spieler möchtest du verlieben?");
+            int gesuchterspieler = scanner.nextInt();
+            Character liebeEins = findspieler(gesuchterspieler);
+            System.out.println("mit welchen Spieler möchtest du ihn verlieben?");
+            gesuchterspieler = scanner.nextInt();
+            Character liebeZwei = findspieler(gesuchterspieler);
+            liebeEins.setLiebespatner(liebeZwei);
+            liebeZwei.setLiebespatner(liebeEins);
+            if (liebeEins.getTeam() != liebeZwei.getTeam()) {
+                liebeEins.setTeam(2);
+                liebeZwei.setTeam(2);
+            }
+        }else {
+            System.out.println("HAHA");
+            Sabotirt=false;
         }
         Reinfolge=15;
     }

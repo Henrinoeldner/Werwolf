@@ -60,8 +60,8 @@ public abstract class Character {
         Stimmen = Stimmen + 1;
     }
 
-    public void changeProtectet() {
-        Protectet = !Protectet;
+    public void changeProtectet(boolean pProtectet) {
+        Protectet = pProtectet;
     }
 
     public void changeGebissen() {

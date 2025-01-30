@@ -13,6 +13,7 @@ public class Dieb extends Character{
         int speicher= bestohlen.getSpieler();
         bestohlen.setSpieler(spieler);
         this.spieler=speicher;
+        Classe="Dorfbewohner";
         Reinfolge=15;
     }
 }

@@ -6,7 +6,9 @@ public class Saboteur extends Character{
         Reinfolge=1;
     }
     public void Feahikeit(){
-
+        System.out.println("Welchen Spieler möchtest du diese Nacht Sabotieren ?");
+        int gesuchterspieler = scanner.nextInt();
+        findspieler(gesuchterspieler).sabotirt();
 
     }
 }

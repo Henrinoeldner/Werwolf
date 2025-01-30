@@ -38,40 +38,45 @@ public class Joker extends Character{
         moeglicheDorfbewohner.add(new Vampier());
         moeglicheDorfbewohner.add(new Verfluchter());
     }
-    public void Feahikeit(){
+    public void Feahikeit() {
 
-        Scanner scanner= new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         int option;
+        if (!Sabotirt) {
+            //Wenn die faehikeit des Jokers bereits benutzt wurde, wird die Faehikeit von dem neuen Charakter benutzt.
+            if (benutzt) {
+                neuercaracter.Feahikeit();
+            }
+            //Wenn die Feahikeit des Jokers noch nicht benutzt wird, wird ein neuer Charakter gewaehlt der spaeter benutzt wird
+            else {
+                System.out.println("Welchen Character moechtest du spielen?");
+                for (int i = 0; i < 3; i++) {
+                    System.out.println("[" + i + "] " + moeglicheWerwolfcharacter.get(i));
 
-        //Wenn die faehikeit des Jokers bereits benutzt wurde, wird die Faehikeit von dem neuen Charakter benutzt.
-        if (benutzt){
-        neuercaracter.Feahikeit();
+                }
+                for (int i = 3; i < moeglicheDorfbewohner.size() + 2; i++) {
+                    System.out.println("[" + i + "] " + moeglicheDorfbewohner.get(i - 3));
+
+                }
+                option = scanner.nextInt();
+
+                if (option < 4) {
+                    neuercaracter = moeglicheWerwolfcharacter.get(option);
+                } else {
+                    neuercaracter = moeglicheDorfbewohner.get(option - 4);
+
+                }
+                Leben = neuercaracter.getLeben();
+                Classe = neuercaracter.getClasse();
+                Team = neuercaracter.getTeam();
+                Reinfolge = neuercaracter.getReinfolge();
+            }
+
+
+        }else {
+            Reinfolge=15;
+            Sabotirt=false;
+            System.out.println("HAHA");
         }
-        //Wenn die Feahikeit des Jokers noch nicht benutzt wird, wird ein neuer Charakter gewaehlt der spaeter benutzt wird
-        else{
-            System.out.println("Welchen Character moechtest du spielen?");
-            for(int i=0; i<3;i++){
-                System.out.println("["+i+"] "+moeglicheWerwolfcharacter.get(i));
-
-            }
-            for(int i=3; i< moeglicheDorfbewohner.size()+2;i++){
-                System.out.println("["+i+"] "+moeglicheDorfbewohner.get(i-3));
-
-            }
-            option= scanner.nextInt();
-
-            if (option<4){
-                neuercaracter= moeglicheWerwolfcharacter.get(option);
-            }else{
-                neuercaracter=moeglicheDorfbewohner.get(option-4);
-
-            }
-            Leben=neuercaracter.getLeben();
-            Classe=neuercaracter.getClasse();
-            Team=neuercaracter.getTeam();
-            Reinfolge=neuercaracter.getReinfolge();
-        }
-
-
     }
 }

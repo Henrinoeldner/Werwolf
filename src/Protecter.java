@@ -6,7 +6,13 @@ public class Protecter extends Character{
         Reinfolge=6;
     }
     public void Feahikeit(){
-
-
+        if (!Sabotirt) {
+            System.out.println("Welchen Spieler möchtest du diese Nacht beschützten?");
+            int gesuchterspieler = scanner.nextInt();
+            findspieler(gesuchterspieler).changeProtectet(true);
+        }else {
+            Sabotirt=false;
+            System.out.println("HAHA");
+        }
     }
 }

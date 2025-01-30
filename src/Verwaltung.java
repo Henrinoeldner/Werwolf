@@ -15,13 +15,11 @@ public class Verwaltung {
         scanner = new Scanner(System.in);
         while (true) {
             System.out.println("== HAUPTMENÜ ==");
-            System.out.println("Was moechtest du testen?");
-            System.out.println("[1]Erzealer");
-            int option = scanner.nextInt();
-            if (option == 1) {
-                Erzaehler erzaehler=new Erzaehler(20);
+            System.out.println("Wie viele Spieler spielen mit?");
+            int pAnzahl = scanner.nextInt();
+                Erzaehler erzaehler=new Erzaehler(pAnzahl);
+                System.out.println("Viel spaß beim spielen");
                erzaehler.spielen();
-            }
         }
         }
 }

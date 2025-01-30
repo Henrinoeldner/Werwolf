@@ -10,7 +10,7 @@ public class Erzaehler {
      public Erzaehler(int pAnzahanspielern){
           moeglicheWerwolfcharacter=new ArrayList<>();
           moeglicheDorfbewohner=new ArrayList<>();
-          spielendecharactere = new Character[pAnzahanspielern+1];
+          spielendecharactere = new Character[pAnzahanspielern];
           moeglicheWerwolfcharacter.add(new Werwolf());
           moeglicheWerwolfcharacter.add(new BlinderWerwolf());
           moeglicheWerwolfcharacter.add(new Weißerwerwolf());
@@ -64,7 +64,7 @@ public class Erzaehler {
 
           this.charackteremischen();
           for(int i=0;i<spielendecharactere.length;i++){
-               spielendecharactere[i].setSpieler(i);
+               spielendecharactere[i].setSpieler(i+1);
           }
           this.sotiren();
      }
@@ -86,6 +86,7 @@ public class Erzaehler {
      }
      public void charackteremischen(){
           Character charecterspeicher;
+
           for(int i=0;i<spielendecharactere.length;i++){
                int speicher=(int)(Math.random()* spielendecharactere.length);
                charecterspeicher=spielendecharactere[speicher];
@@ -95,13 +96,41 @@ public class Erzaehler {
 
      }
      public void spielen(){
+          List<Character> angeklagte= new ArrayList<>();
+          List<Integer> stimmen= new ArrayList<>();
           this.characktereerstellen();
+          this.sotiren();
           for(int i=0;i<spielendecharactere.length;i++){
                if(spielendecharactere[i].getReinfolge()<15){
                     System.out.println("Spieler "+spielendecharactere[i].getSpieler()+", du bist dran. Du bist "+ spielendecharactere[i].getClasse());
                     spielendecharactere[i].Feahikeit();
                }
           }
-
+          for (int i=0;i<spielendecharactere.length;i++){
+               if (spielendecharactere[i].getLeben()<1){
+                    System.out.println("Spieler "+spielendecharactere[i].getSpieler()+" wurde getötet. Er war"+ spielendecharactere[i].getClass());
+                    //spielendecharactere[i].
+               }
+          }
+          System.out.println("Der Tag hat begonnen");
+          this.charackteremischen();
+          angeklagte.clear();
+          for (int i=0;i<spielendecharactere.length;i++){
+              Character speicher= spielendecharactere[i].anklagen();
+              if(!angeklagte.contains(speicher)){
+                   angeklagte.add(speicher);
+                   stimmen.add(0);
+              }
+          }
+          System.out.println("Folgende Spieler sind angeklagt:");
+          for (int i=0;i<angeklagte.size();i++){
+               if(angeklagte.get(i).getSpieler()!=0){
+                   System.out.println("["+i+"] Spieler "+angeklagte.get(i).getSpieler());
+               }
+          }
+          for (int i=0;i<spielendecharactere.length;i++){
+              System.out.println("Spieler "+spielendecharactere[i]+", wer glaubst du ist der Schuldige?");
+              stimmen.add(stimmen.get(spielendecharactere[i].abstimmen())+1);
+          }
      }
 }

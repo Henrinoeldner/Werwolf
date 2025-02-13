@@ -88,6 +88,19 @@ public abstract class Character {
         }
 
     }
+
+    public Character anklagen(){
+        System.out.println("Spieler "+spieler+", welchen Spieler möchtest du anklagen (0 wenn du niemanden anklagen möchtest)? ");
+        int gesuchterspieler =scanner.nextInt();
+        if (gesuchterspieler!=0) {
+            return findspieler(gesuchterspieler);
+        }else{
+            Character dumie=new Dorfbewohner();
+            dumie.setSpieler(0);
+            return dumie;
+        }
+
+    }
     public int abstimmen(){
         return scanner.nextInt();
     }
@@ -111,6 +124,7 @@ public abstract class Character {
     public String getClasse() {
         return Classe;
     }
+
 
     public Character findspieler(int pSpieler) {
         this.spielendecharactere= Erzaehler.spielendecharactere;

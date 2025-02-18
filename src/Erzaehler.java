@@ -37,6 +37,11 @@ public class Erzaehler {
      }
      public Erzaehler(){}
 
+     /**
+      * Befült das Array der Spielende Charactere mit zufälligen Objekten der Listen möglichen Dorfbewohner und möglichen Werwölfen im Verhältnis
+      * 3 Dorfbewohner 1 Werwolf. Wenn ein Dorfbewohner honzugefügt werden soll, wird ein neues Objekt erschaffen. Selbest gilt für den Werwolf.
+      * Auch wird jedem Objekt ein zufälliger Spieler zugewiesen
+      */
      public void characktereerstellen(){
           //Sorgt fuer ein verheltnis zwischen Werwoelfen und Dorfbewohneren(ein werwolf fuer alle drei dorfbeohner)
           int anzahlwerwoelfe=(spielendecharactere.length-1)/3;
@@ -68,6 +73,10 @@ public class Erzaehler {
           }
           this.sotiren();
      }
+
+     /**
+      * Sortiert das Array der Spielenden Charactere mit dem Bubblesort verfahren nach der Reihenfolge in welcher die Fähigkeiten in der Nacht aufwachen
+      */
      public void sotiren(){
 
                Character vergleich;
@@ -84,6 +93,10 @@ public class Erzaehler {
                }
 
      }
+
+     /**
+      * Mischt das Array der spielenden Charactern
+      */
      public void charackteremischen(){
           Character charecterspeicher;
 
@@ -95,6 +108,10 @@ public class Erzaehler {
           }
 
      }
+
+     /**
+      * Geht den Spielablauf durch (Nachts alle Fähigkeiten und Tags die Abstimmung)
+      */
      public void spielen(){
           List<Character> angeklagte= new ArrayList<>();
           List<Integer> stimmen= new ArrayList<>();
@@ -129,7 +146,7 @@ public class Erzaehler {
                }
           }
           for (int i=0;i<spielendecharactere.length;i++){
-              System.out.println("Spieler "+spielendecharactere[i]+", wer glaubst du ist der Schuldige?");
+
               stimmen.add(stimmen.get(spielendecharactere[i].abstimmen())+1);
           }
      }

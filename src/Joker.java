@@ -38,6 +38,10 @@ public class Joker extends Character{
         moeglicheDorfbewohner.add(new Vampier());
         moeglicheDorfbewohner.add(new Verfluchter());
     }
+
+    /**
+     * Lässt den Spieler eine neue Rolle aussuchen, welche er dann übernimmt und fortan als diese spielt
+     */
     public void Feahikeit() {
 
         Scanner scanner = new Scanner(System.in);

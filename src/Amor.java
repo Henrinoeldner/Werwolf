@@ -5,6 +5,12 @@ public class Amor extends Character{
         Team=1;
         Reinfolge=3;
     }
+
+    /**
+     * Lässt dich zwei Spieler aussuchen dessen zugeordneten Character Objekte dann das jeweils ander als variable speichern (mit Methode setLiebespatner.)
+     * Sollten die ausgewählten spieler unterschiedlichen teams angehören, so wird Ihr Team auf team 2 (Liebende) gesetzt (it der Methode setTeam).
+     * Zum Schluss wird die Reinfolge auf 15 gesetzt, damit der Armor nicht erneut erwacht.
+     */
     public void Feahikeit(){
         if (!Sabotirt) {
             System.out.println("Welchen spieler möchtest du verlieben?");

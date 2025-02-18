@@ -6,6 +6,10 @@ public class Werwolfseher extends Character{
         Reinfolge=8;
     }
 
+    /**
+     * Gibt die Rolle des vom Benutzter gewählten Spielers zurück
+     * (Außer der Schattenwerwolf wird betrachtet, dann wird Dorfbewohner ausgegeben)
+     */
     public void Feahikeit() {
         if (!Sabotirt){
             System.out.println("Von welchem Spieler möchtest du die Rolle sehen?");

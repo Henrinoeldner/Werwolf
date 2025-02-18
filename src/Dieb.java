@@ -5,6 +5,10 @@ public class Dieb extends Character{
         Team=1;
         Reinfolge=0;
     }
+
+    /**
+     * Tauscht den zugewiesenen Spieler mit dem Character Objekt des gewählten spieler.
+     */
     public void Feahikeit(){
         System.out.println("Von welchem spieler möchtest du die Rolle stehlen?");
         int gesuchterspieler =scanner.nextInt();

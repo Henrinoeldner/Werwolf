@@ -4,8 +4,9 @@ import java.util.Random;
 
 public class Erzaehler {
      public static Character[] spielendecharactere;
-     public List<Character> moeglicheWerwolfcharacter;
-     List<Character> moeglicheDorfbewohner;
+     private List<Character> moeglicheWerwolfcharacter;
+     private List<Character> moeglicheDorfbewohner;
+     public static List<Character> totespieler;
 
      public Erzaehler(int pAnzahanspielern){
           moeglicheWerwolfcharacter=new ArrayList<>();
@@ -148,6 +149,33 @@ public class Erzaehler {
           for (int i=0;i<spielendecharactere.length;i++){
 
               stimmen.add(stimmen.get(spielendecharactere[i].abstimmen())+1);
+          }
+          int großtestimmeanzahl=0;
+          ArrayList<Character> schuldige=new ArrayList<>();
+          for (int i=0;i<stimmen.size();i++){
+               if (stimmen.get(i)>=großtestimmeanzahl){
+                    if (stimmen.get(i)==großtestimmeanzahl){
+                         schuldige.add(angeklagte.get(i));
+                    }else {
+                         großtestimmeanzahl=stimmen.get(i);
+                         schuldige.clear();
+                         schuldige.add(angeklagte.get(i));
+                    }
+               }
+          }
+          Character toter=schuldige.get((int)Math.random()*schuldige.size());
+          toter.sterben();
+          for (int i=0;i<spielendecharactere.length;i++){
+               if(spielendecharactere[i]==toter){
+                    for (int b=i;b<spielendecharactere.length-1;b++){
+                         spielendecharactere[i]=spielendecharactere[i+1];
+                    }
+                    Character[] speicher=new Character[spielendecharactere.length-1];
+                    for (int c=0;c<spielendecharactere.length-1;c++){
+                         speicher[i]=spielendecharactere[i];
+                    }
+                    spielendecharactere=speicher;
+               }
           }
      }
 }

@@ -191,6 +191,11 @@ public abstract class Character {
         }
         return spielendecharactere[spielendecharactere.length-1];
     }
+
+    public void sterben(){
+        Erzaehler.totespieler.add(this);
+        System.out.println("spieler "+ spieler +". Du bist aus dem Dorf gescheucht worden." );
+    }
 }
 
 

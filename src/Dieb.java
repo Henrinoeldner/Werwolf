@@ -1,4 +1,8 @@
 public class Dieb extends Character{
+    /**
+     * Im Konstruktor wird die Variablen Leben, Classe, Team und rheinfolge mit Inhalt
+     * befüllt.(genaue Erklärung der Variable siehe Classe Character)
+     */
     public Dieb(){
         Leben=1;
         Classe="Dieb";

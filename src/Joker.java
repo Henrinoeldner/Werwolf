@@ -4,9 +4,19 @@ import java.util.Scanner;
 
 public class Joker extends Character{
     private Character neuercaracter;
-    List<Character> moeglicheWerwolfcharacter;
+    List<Character> moeglicheWerwolfcharacter; //Erstellen der Listen an Characteren die der Joker annehmen kann.
     List<Character> moeglicheDorfbewohner;
-    private boolean benutzt;
+    // Werwolf und Dorfbewohner werden in getrennten Listen gespeichert um die
+    // Teams einfacher zuteilen zu können.
+
+    private boolean benutzt; // Initalsierung von der Variable benutzt
+    /**
+     * Im Konstruktor wird die Variablen Leben, Classe, Team und rheinfolge mit Inhalt
+     * befüllt.(genaue Erklärung der Variable siehe Classe Character). Beim Joker werden zusätzlich noch alle
+     * Rollen mit gegeben die der Joker annehmen kann. Diese werden in einer Liste gespeichert
+     * und ob er seine fähigkeit bereits genutzt hat. Bei false ist dies nicht der fall bei True
+     * wurde die Fähigkeit des jokers bereits benutzt
+     */
     public Joker(){
 
         Leben=1;
@@ -16,12 +26,13 @@ public class Joker extends Character{
         benutzt=false;
         moeglicheWerwolfcharacter=new ArrayList<>();
         moeglicheDorfbewohner=new ArrayList<>();
+        //befüllen der Werwolfliste.
         moeglicheWerwolfcharacter.add(new Werwolf());
         moeglicheWerwolfcharacter.add(new BlinderWerwolf());
         moeglicheWerwolfcharacter.add(new Weißerwerwolf());
         moeglicheWerwolfcharacter.add(new Werwolfseher());
 
-
+        // befüllen der Dorfbewohner liste
         moeglicheDorfbewohner.add(new Dorfbewohner());
         moeglicheDorfbewohner.add(new Alterman());
         moeglicheDorfbewohner.add(new Amor());
@@ -53,6 +64,7 @@ public class Joker extends Character{
             }
             //Wenn die Feahikeit des Jokers noch nicht benutzt wird, wird ein neuer Charakter gewaehlt der spaeter benutzt wird
             else {
+                //Ausgabe an den Benutzter welche Rolle er wählen kann.
                 System.out.println("Welchen Character moechtest du spielen?");
                 for (int i = 0; i < 3; i++) {
                     System.out.println("[" + i + "] " + moeglicheWerwolfcharacter.get(i));
@@ -63,13 +75,14 @@ public class Joker extends Character{
 
                 }
                 option = scanner.nextInt();
-
+                // Rückgabe an den Computer welcher Character ausgewählt wurde
                 if (option < 4) {
                     neuercaracter = moeglicheWerwolfcharacter.get(option);
                 } else {
                     neuercaracter = moeglicheDorfbewohner.get(option - 4);
 
                 }
+                // Die Variabeln Leben Classe Team und rheinfolge werden auf die werte des neugewählten Chracters initaliesiert.
                 Leben = neuercaracter.getLeben();
                 Classe = neuercaracter.getClasse();
                 Team = neuercaracter.getTeam();
@@ -77,10 +90,13 @@ public class Joker extends Character{
             }
 
 
-        }else {
+        }else //falls der Joker sabortiert wird
+        // und sich keinen Character auswählen darf wird er als normaler Dorfbewohner gewertet..
+        {
+            benutzt = true;
             Reinfolge=15;
             Sabotirt=false;
-            System.out.println("HAHA");
+            System.out.println("HAHA Wurdest sabortiert.");
         }
     }
 }

@@ -131,6 +131,10 @@ public class Erzaehler {
                          //spielendecharactere[i].
                     }
                }
+               //Ausortirung der Toten//
+               for (int i=0;i<spielendecharactere.length;i++){
+
+               }
 
                //Beginn des Tages und abstimmungen//
                System.out.println("Der Tag hat begonnen");

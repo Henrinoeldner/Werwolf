@@ -1,22 +1,22 @@
 import java.util.Scanner;
 public abstract class Character {
     protected Scanner scanner=new Scanner(System.in);
-    public int Leben; //Leben gibt die Anzahl der Leben wieder. Wenn die leben Null ereichen Stirbt der Chahrakter
-    public String Classe; //Gibt an welche klasse (Werwolf, hexe,...) an
-    public int Team; //Team gibt an, welches Team der Charackter ist (werwolf:0,Dorfbewohner:1,Liebende:2,Vampir:3;Weißerwerwolf:4)
-    public boolean Sabotirt;// wenn Sabotirt, dann kann feahikeit nicht benutzt werden
-    public int Reinfolge;// Reinfolge bestimmt, wann die karte dran ist (Bsp: erst 1 dann 3 und dann 4)
-    public int Stimmen; // Stimmen gibt an wie viele Leute bereits für diesen charakter gestimmt haben
-    public boolean Protectet; // wenn Protecte stimmt, dann kann dieser Character in der Nacht nicht sterben
-    public boolean Gebissen; // wenn alle gebissen wahr dann gewint der vampier zusätzlich muss team geander werden
-    public boolean Buegermeister;// wenn Buegermeister wahr ist, hat diese Karte zwei stimmen auser bei unentschieden. Dann nur 1
-    public Character Liebespatner;// merkt sich, wer der Liebespatner ist.
-    public Character Schlafwandlerin; //merkt sich, bei wem sich die Schlafwandlerin befindet
-    public int Stearke;//Gibt die steake der Karte an
+    protected int Leben; //Leben gibt die Anzahl der Leben wieder. Wenn die leben Null ereichen Stirbt der Chahrakter
+    protected String Classe; //Gibt an welche klasse (Werwolf, hexe,...) an
+    protected int Team; //Team gibt an, welches Team der Charackter ist (werwolf:0,Dorfbewohner:1,Liebende:2,Vampir:3;Weißerwerwolf:4)
+    protected boolean Sabotirt;// wenn Sabotirt, dann kann feahikeit nicht benutzt werden
+    protected int Reinfolge;// Reinfolge bestimmt, wann die karte dran ist (Bsp: erst 1 dann 3 und dann 4)
+    protected int Stimmen; // Stimmen gibt an wie viele Leute bereits für diesen charakter gestimmt haben
+    protected boolean Protectet; // wenn Protecte stimmt, dann kann dieser Character in der Nacht nicht sterben
+    protected boolean Gebissen; // wenn alle gebissen wahr dann gewint der vampier zusätzlich muss team geander werden
+    protected boolean Buegermeister;// wenn Buegermeister wahr ist, hat diese Karte zwei stimmen auser bei unentschieden. Dann nur 1
+    protected Character Liebespatner;// merkt sich, wer der Liebespatner ist.
+    protected Character Schlafwandlerin; //merkt sich, bei wem sich die Schlafwandlerin befindet
+    protected int Stearke;//Gibt die steake der Karte an
     // sabotirt setzt die variable Sabotirt auf den mitgegebnenen @Parameter
-    public boolean Angeklagt;
-    public int spieler;
-    public Character[] spielendecharactere;
+    protected boolean Angeklagt;
+    protected int spieler;
+    protected Character[] spielendecharactere;
 
     /**
      * setzt die Variable spieler auf den Parameter pSpieler.
@@ -195,6 +195,18 @@ public abstract class Character {
     public void sterben(){
         Erzaehler.totespieler.add(this);
         System.out.println("spieler "+ spieler +". Du bist aus dem Dorf gescheucht worden." );
+        for (int i = 0; i < spielendecharactere.length; i++) {
+            if (spielendecharactere[i] == this) {
+                for (int b = i; b < spielendecharactere.length - 1; b++) {
+                    spielendecharactere[b] = spielendecharactere[b + 1];
+                }
+                Character[] speicher = new Character[spielendecharactere.length - 1];
+                for (int c = 0; c < spielendecharactere.length - 1; c++) {
+                    speicher[c] = spielendecharactere[c];
+                }
+                spielendecharactere = speicher;
+            }
+        }
     }
 }
 

@@ -44,7 +44,8 @@ public abstract class Character {
      */
     public void sabotirt() {
         Sabotirt = true;
-    }
+    } // Wird aufgerufen wenn der saborteur jemanden
+    // sabortiert hat und setzt die Variable für den Spieler auf true
 
     /**
      * gibt den Wert des Lebens zurück
@@ -132,14 +133,16 @@ public abstract class Character {
      * @return den angeklagten Spieler
      */
     public Character anklagen(){
+        //Abfrage wer angeklagt wird
         System.out.println("Spieler "+spieler+", welchen Spieler möchtest du anklagen (0 wenn du niemanden anklagen möchtest)? ");
         int gesuchterspieler =scanner.nextInt();
+        // Der spieler wird gesucht
+        // (bei 0 wurde niemand angeklegt dementsprechend wird keiner gesucht)
         if (gesuchterspieler!=0) {
+            //Der spieler wird als angeklagt zurückgegeben
             return findspieler(gesuchterspieler);
         }else{
-            Character dumie=new Dorfbewohner();
-            dumie.setSpieler(0);
-            return dumie;
+            return null;
         }
 
     }
@@ -149,6 +152,7 @@ public abstract class Character {
      * @return denn ausgewählten spieler.
      */
     public int abstimmen(){
+        //Abfrage für wen man glaubt von den Spielern der schuldige ist.
         System.out.println("Spieler "+spieler+", wer glaubst du ist der Schuldige?");
         return scanner.nextInt();
     }
@@ -183,12 +187,18 @@ public abstract class Character {
      * @return das Character Objekt dem der gesuchte spieler zugewiesen ist
      */
     public Character findspieler(int pSpieler) {
+
         this.spielendecharactere= Erzaehler.spielendecharactere;
+        //die liste der character wird durchgegangen
         for (int i = 0; i < spielendecharactere.length; i++) {
+            // abfrage ob der gesuchte spieler gefunden wurde
             if (spielendecharactere[i].getSpieler() == pSpieler) {
+                //rückgabe des gesuchten spieler
                 return spielendecharactere[i];
             }
         }
+        // falls ein nicht exesiztenter spieler
+        // angegeben wird wird der Letzte spiler zurückgegeben damit das Programm nicht abstürzt
         return spielendecharactere[spielendecharactere.length-1];
     }
 

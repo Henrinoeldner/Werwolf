@@ -125,21 +125,18 @@ public class Erzaehler {
                          spielendecharactere[i].Feahikeit();
                     }
                }
-               for (int i = 0; i < spielendecharactere.length; i++) {
-                    if (spielendecharactere[i].getLeben() < 1) {
-                         System.out.println("Spieler " + spielendecharactere[i].getSpieler() + " wurde getötet. Er war" + spielendecharactere[i].getClass());
-                         //spielendecharactere[i].
-                    }
-               }
                //Ausortirung der Toten//
-               for (int i=0;i<spielendecharactere.length;i++){
-                    if(spielendecharactere[i].getLeben()<=0) {
-                         spielendecharactere[i].Feahikeit();
-                         spielendecharactere[i].sterben();
-                    }
-               }
+              for (Character value : spielendecharactere) {
+                  if (value.getLeben() <= 0) {
+                      value.Feahikeit();
+                      value.sterben();
+                  }
+              }
 
-               //Beginn des Tages und abstimmungen//
+                    //Beginn des Tages und abstimmungen//
+              for (Character character : spielendecharactere) {
+                   character.setLiebespatner(null);
+              }
                System.out.println("Der Tag hat begonnen");
                this.charackteremischen();
                angeklagte.clear();
@@ -152,40 +149,42 @@ public class Erzaehler {
                          stimmen.add(0);
                     }
                }
-
-               //Weahlen welcher der angeklagten Spieler herausgeworfen wird//
-               System.out.println("Folgende Spieler sind angeklagt:");
-               for (int i = 0; i < angeklagte.size(); i++) {
-                    if (angeklagte.get(i)!=null) {
-                         System.out.println("[" + i + "] Spieler " + angeklagte.get(i).getSpieler());
-                    }
-               }
-               for (int i = 0; i < spielendecharactere.length; i++) {
-                    int spielerplatz=spielendecharactere[i].abstimmen();
-                    if (spielerplatz<stimmen.size()) {
-                         stimmen.set(spielerplatz, stimmen.get(spielerplatz) + 1);
-                    }else {
-                         System.out.println("Da dein eingegebene Zahl größer war als die anzahl der angeklagten Spieler wird deine Wahl nicht gewertet");
-                    }
-               }
-               int großtestimmeanzahl = 0;
-               ArrayList<Character> schuldige = new ArrayList<>();
-               for (int i = 0; i < stimmen.size(); i++) {
-                    if (stimmen.get(i) >= großtestimmeanzahl) {
-                         if (stimmen.get(i) == großtestimmeanzahl) {
-                              schuldige.add(angeklagte.get(i));
-                         } else {
-                              großtestimmeanzahl = stimmen.get(i);
-                              schuldige.clear();
-                              schuldige.add(angeklagte.get(i));
+               if (!angeklagte.isEmpty()) {
+                    //Weahlen welcher der angeklagten Spieler herausgeworfen wird//
+                    System.out.println("Folgende Spieler sind angeklagt:");
+                    for (int i = 0; i < angeklagte.size(); i++) {
+                         if (angeklagte.get(i) != null) {
+                              System.out.println("[" + i + "] Spieler " + angeklagte.get(i).getSpieler());
                          }
                     }
+                    for (int i = 0; i < spielendecharactere.length; i++) {
+                         int spielerplatz = spielendecharactere[i].abstimmen();
+                         if (spielerplatz < stimmen.size()) {
+                              stimmen.set(spielerplatz, stimmen.get(spielerplatz) + 1);
+                         } else {
+                              System.out.println("Da dein eingegebene Zahl größer war als die anzahl der angeklagten Spieler wird deine Wahl nicht gewertet");
+                         }
+                    }
+                    int großtestimmeanzahl = 0;
+                    ArrayList<Character> schuldige = new ArrayList<>();
+                    for (int i = 0; i < stimmen.size(); i++) {
+                         if (stimmen.get(i) >= großtestimmeanzahl) {
+                              if (stimmen.get(i) == großtestimmeanzahl) {
+                                   schuldige.add(angeklagte.get(i));
+                              } else {
+                                   großtestimmeanzahl = stimmen.get(i);
+                                   schuldige.clear();
+                                   schuldige.add(angeklagte.get(i));
+                              }
+                         }
+                    }
+
+                    //--------Raugewaeltn Spiler rauswerfen ------------//
+                    Character toter = schuldige.get((int) (Math.random() * schuldige.size()));
+                    toter.setLeben(0);
+                    toter.Feahikeit();
+                    toter.sterben();
                }
-
-               //--------Raugewaeltn Spiler rauswerfen ------------//
-               Character toter = schuldige.get((int) (Math.random() * schuldige.size()));
-               toter.sterben();
-
           }
      }
 

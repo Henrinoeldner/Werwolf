@@ -55,6 +55,10 @@ public abstract class Character {
         return Leben;
     }
 
+    public void setLeben(int pLeben){
+        Leben=pLeben;
+    }
+
     /**
      * reduziert den wert von Leben um eins
      */
@@ -205,6 +209,9 @@ public abstract class Character {
     public void sterben(){
         Erzaehler.totespieler.add(this);
         System.out.println("spieler "+ spieler +". Du bist aus dem Dorf gescheucht worden." );
+        if (Liebespatner!=null){
+            Liebespatner.sterben();
+        }
         for (int i = 0; i < spielendecharactere.length; i++) {
             if (spielendecharactere[i] == this) {
                 for (int b = i; b < spielendecharactere.length - 1; b++) {

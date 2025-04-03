@@ -76,10 +76,10 @@ public class Joker extends Character{
                 }
                 option = scanner.nextInt();
                 // Rückgabe an den Computer welcher Character ausgewählt wurde
-                if (option < 4) {
+                if (option < 3) {
                     neuercaracter = moeglicheWerwolfcharacter.get(option);
                 } else {
-                    neuercaracter = moeglicheDorfbewohner.get(option - 4);
+                    neuercaracter = moeglicheDorfbewohner.get(option - 3);
 
                 }
                 // Die Variabeln Leben Classe Team und rheinfolge werden auf die werte des neugewählten Chracters initaliesiert.
@@ -87,6 +87,7 @@ public class Joker extends Character{
                 Classe = neuercaracter.getClasse();
                 Team = neuercaracter.getTeam();
                 Reinfolge = neuercaracter.getReinfolge();
+                benutzt=true;
             }
 
 

@@ -133,7 +133,10 @@ public class Erzaehler {
                }
                //Ausortirung der Toten//
                for (int i=0;i<spielendecharactere.length;i++){
-
+                    if(spielendecharactere[i].getLeben()<=0) {
+                         spielendecharactere[i].Feahikeit();
+                         spielendecharactere[i].sterben();
+                    }
                }
 
                //Beginn des Tages und abstimmungen//

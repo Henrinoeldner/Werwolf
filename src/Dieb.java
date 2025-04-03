@@ -14,14 +14,19 @@ public class Dieb extends Character{
      * Tauscht den zugewiesenen Spieler mit dem Character Objekt des gewählten spieler.
      */
     public void Feahikeit(){
-        System.out.println("Von welchem spieler möchtest du die Rolle stehlen?");
-        int gesuchterspieler =scanner.nextInt();
-        Character bestohlen=findspieler(gesuchterspieler);
-        System.out.println("Deine neue Rolle ist: "+bestohlen.getClasse());
-        int speicher= bestohlen.getSpieler();
-        bestohlen.setSpieler(spieler);
-        this.spieler=speicher;
-        Classe="Dorfbewohner";
-        Reinfolge=15;
+        if (!Sabotirt&&Leben>0) {
+            System.out.println("Von welchem spieler möchtest du die Rolle stehlen?");
+            int gesuchterspieler = scanner.nextInt();
+            Character bestohlen = findspieler(gesuchterspieler);
+            System.out.println("Deine neue Rolle ist: " + bestohlen.getClasse());
+            int speicher = bestohlen.getSpieler();
+            bestohlen.setSpieler(spieler);
+            this.spieler = speicher;
+            Classe = "Dorfbewohner";
+            Reinfolge = 15;
+        }else {
+            System.out.println("HAHA");
+            Sabotirt=false;
+        }
     }
 }

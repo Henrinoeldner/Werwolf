@@ -16,7 +16,7 @@ public class Protecter extends Character{
      * Läst ein Spieler aussuchen der diese Nacht beschützt ist und nicht Sterben kann
      */
     public void Feahikeit(){
-        if (!Sabotirt) {
+        if (!Sabotirt&&Leben>0) {
             // frage an den Spieler wenn er beschützen möchte.
             System.out.println("Welchen Spieler möchtest du diese Nacht beschützten?");
            //Rückgabe an den Computer wer beschützt werden soll.

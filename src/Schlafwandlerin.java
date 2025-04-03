@@ -15,7 +15,7 @@ public class Schlafwandlerin extends Character{
      */
     public void Feahikeit(){
         //Überprüfung ob sabortiert wurde
-        if (!Sabotirt){
+        if (!Sabotirt&&Leben>0){
             System.out.println("Bei welchem Spieler verbringst du diese Nacht?");
             // auswahl des Übernachtungspartners wird gespeichertin einer variable
             int gesuchterspieler = scanner.nextInt();

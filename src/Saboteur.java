@@ -15,7 +15,7 @@ public class Saboteur extends Character{
      */
     public void Feahikeit(){
         // abfrage ob er sabortiert wurde.
-        if(!Sabotirt){
+        if(!Sabotirt&&Leben>0){
         System.out.println("Welchen Spieler möchtest du diese Nacht Sabotieren ?");
         //Der Spieler der sabortiert wird wir in einer variable gespeichert.
         int gesuchterspieler = scanner.nextInt();

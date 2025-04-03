@@ -18,7 +18,7 @@ public class Seherin extends Character{
      */
     public void Feahikeit(){
         // Abfrage ob er sabortiert wurde.
-        if (!Sabotirt){
+        if (!Sabotirt&&Leben>0){
             // Abfrage welcher Spieler angeschaut werden soll
             System.out.println("Von welchem Spieler möchtest du die Rolle sehen?");
             int gesuchterspieler = scanner.nextInt();

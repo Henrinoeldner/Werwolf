@@ -16,7 +16,7 @@ public class Amor extends Character{
      * Zum Schluss wird die Reinfolge auf 15 gesetzt, damit der Armor nicht erneut erwacht.
      */
     public void Feahikeit(){
-        if (!Sabotirt) {
+        if (!Sabotirt&&Leben>0) {
             System.out.println("Welchen spieler möchtest du verlieben?");
             int gesuchterspieler = scanner.nextInt();
             Character liebeEins = findspieler(gesuchterspieler);
@@ -29,7 +29,7 @@ public class Amor extends Character{
                 liebeEins.setTeam(2);
                 liebeZwei.setTeam(2);
             }
-        }else {
+        }else{
             System.out.println("HAHA");
             Sabotirt=false;
         }

@@ -57,7 +57,7 @@ public class Joker extends Character{
 
         Scanner scanner = new Scanner(System.in);
         int option;
-        if (!Sabotirt) {
+        if (!Sabotirt&&Leben>0) {
             //Wenn die faehikeit des Jokers bereits benutzt wurde, wird die Faehikeit von dem neuen Charakter benutzt.
             if (benutzt) {
                 neuercaracter.Feahikeit();

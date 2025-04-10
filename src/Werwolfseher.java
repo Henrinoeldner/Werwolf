@@ -1,9 +1,11 @@
 public class Werwolfseher extends Character{
+    private Erzaehler erzaehler;
     /**
      * Im Konstruktor wird die Variablen Leben, Classe, Team und rheinfolge mit Inhalt
      * befüllt.(genaue Erklärung der Variable siehe Classe Character)
      */
-    public Werwolfseher(){
+    public Werwolfseher(Erzaehler pErzaehler){
+        erzaehler=pErzaehler;
         Leben=1;
         Classe="Werwolfseher";
         Team=0;
@@ -17,18 +19,30 @@ public class Werwolfseher extends Character{
    public void Feahikeit(){
         // Abfrage ob er sabortiert wurde.
         if (!Sabotirt){
-            // Abfrage welcher Spieler angeschaut werden soll
-            System.out.println("Von welchem Spieler möchtest du die Rolle sehen?");
-            int gesuchterspieler = scanner.nextInt();
-            // Spieler wird angeschaut
-            String erblickteklasse = findspieler(gesuchterspieler).getClasse();
-            // Abfrage ob der angeschaute Spieler Schattenwerwolf ist (kann nicht angeschaut werden)
-            if (erblickteklasse.equals("Schattenwerwolf")){
-                //Falls sschattenwerwolf wird Dorfbewohner angezeigt
-                System.out.println("Der erblickte Spieler ist Dorfbewohner");
+            if (Reinfolge==8) {
+                // Abfrage welcher Spieler angeschaut werden soll
+                System.out.println("Von welchem Spieler möchtest du die Rolle sehen?");
+                int gesuchterspieler = scanner.nextInt();
+                // Spieler wird angeschaut
+                String erblickteklasse = findspieler(gesuchterspieler).getClasse();
+                // Abfrage ob der angeschaute Spieler Schattenwerwolf ist (kann nicht angeschaut werden)
+                if (erblickteklasse.equals("Schattenwerwolf")) {
+                    //Falls sschattenwerwolf wird Dorfbewohner angezeigt
+                    System.out.println("Der erblickte Spieler ist Dorfbewohner");
+                } else {
+                    //Ansonsten die reale Figur
+                    System.out.println("Der erblickte Spieler ist " + erblickteklasse);
+                }
+                Reinfolge=9;
+                erzaehler.sotiren();
             }else{
-                //Ansonsten die reale Figur
-                System.out.println("Der erblickte Spieler ist "+erblickteklasse);
+                System.out.println("Wähle den Spieler den gerne verspeisen möchtest.");
+                int gesuchterspieler = scanner.nextInt();
+                Character speicher= findspieler(gesuchterspieler);
+                Werwolf.werwolfopfer.add(speicher);
+                speicher.changeStimmen();
+                Reinfolge=8;
+
             }
         }else{
             // // Falls er sabortiert wird wird die sabortation zurück gesetzt

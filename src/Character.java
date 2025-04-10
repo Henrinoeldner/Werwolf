@@ -16,7 +16,7 @@ public abstract class Character {
     // sabotirt setzt die variable Sabotirt auf den mitgegebnenen @Parameter
     protected boolean Angeklagt;
     protected int spieler;
-    protected Character[] spielendecharactere;
+    protected Character[] spielendecharactere=Erzaehler.spielendecharactere;
 
     /**
      * setzt die Variable spieler auf den Parameter pSpieler.

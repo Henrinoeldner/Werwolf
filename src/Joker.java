@@ -17,7 +17,7 @@ public class Joker extends Character{
      * und ob er seine fähigkeit bereits genutzt hat. Bei false ist dies nicht der fall bei True
      * wurde die Fähigkeit des jokers bereits benutzt
      */
-    public Joker(){
+    public Joker(Erzaehler pErzaehler){
 
         Leben=1;
         Classe="Joker";
@@ -30,7 +30,7 @@ public class Joker extends Character{
         moeglicheWerwolfcharacter.add(new Werwolf());
         moeglicheWerwolfcharacter.add(new BlinderWerwolf());
         moeglicheWerwolfcharacter.add(new Weißerwerwolf());
-        moeglicheWerwolfcharacter.add(new Werwolfseher());
+        moeglicheWerwolfcharacter.add(new Werwolfseher(pErzaehler));
 
         // befüllen der Dorfbewohner liste
         moeglicheDorfbewohner.add(new Dorfbewohner());

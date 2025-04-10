@@ -12,7 +12,11 @@ public class Weißerwerwolf extends Character {
     }
 
     public void Feahikeit(){
-
+        System.out.println("Wähle den Spieler den gerne verspeisen möchtest.");
+        int gesuchterspieler = scanner.nextInt();
+        Character speicher= findspieler(gesuchterspieler);
+        Werwolf.werwolfopfer.add(speicher);
+        speicher.changeStimmen();
 
     }
 }

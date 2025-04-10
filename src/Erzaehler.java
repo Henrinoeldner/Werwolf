@@ -15,7 +15,7 @@ public class Erzaehler {
           moeglicheWerwolfcharacter.add(new Werwolf());
           moeglicheWerwolfcharacter.add(new BlinderWerwolf());
           moeglicheWerwolfcharacter.add(new Weißerwerwolf());
-          moeglicheWerwolfcharacter.add(new Werwolfseher());
+          moeglicheWerwolfcharacter.add(new Werwolfseher(this));
 
 
           moeglicheDorfbewohner.add(new Dorfbewohner());
@@ -33,7 +33,7 @@ public class Erzaehler {
           moeglicheDorfbewohner.add(new Totengreaber());
           moeglicheDorfbewohner.add(new Vampier());
           moeglicheDorfbewohner.add(new Verfluchter());
-          moeglicheDorfbewohner.add(new Joker());
+          moeglicheDorfbewohner.add(new Joker(this));
 
           totespieler= new ArrayList<>();
 
@@ -113,17 +113,27 @@ public class Erzaehler {
       * Geht den Spielablauf durch (Nachts alle Fähigkeiten und Tags die Abstimmung)
       */
      public void spielen(){
+          boolean werwoelfevorbei;
           List<Character> angeklagte= new ArrayList<>();
           List<Integer> stimmen= new ArrayList<>();
           this.characktereerstellen();
 
           while (!this.spielvorbei()) {
                this.sotiren();
+               werwoelfevorbei=false;
                for (int i = 0; i < spielendecharactere.length; i++) {
                     if (spielendecharactere[i].getReinfolge() < 15) {
+                         if (spielendecharactere[i].getReinfolge()>9&&!werwoelfevorbei) {
+                              werwolfsterben();
+                              werwoelfevorbei=true;
+                         }
                          System.out.println("Spieler " + spielendecharactere[i].getSpieler() + ", du bist dran. Du bist " + spielendecharactere[i].getClasse());
                          spielendecharactere[i].Feahikeit();
+
                     }
+               }
+               if (!werwoelfevorbei){
+                    werwolfsterben();
                }
                //Ausortirung der Toten//
               for (Character value : spielendecharactere) {
@@ -165,6 +175,8 @@ public class Erzaehler {
                               System.out.println("Da dein eingegebene Zahl größer war als die anzahl der angeklagten Spieler wird deine Wahl nicht gewertet");
                          }
                     }
+
+                    //Bestimmung des Spielers mit der höchsten Stimmen Anzahl//
                     int großtestimmeanzahl = 0;
                     ArrayList<Character> schuldige = new ArrayList<>();
                     for (int i = 0; i < stimmen.size(); i++) {
@@ -201,5 +213,24 @@ public class Erzaehler {
           System.out.println("Das Spiel ist vorbei" );
           //Ausgabe des Gewinnerteams muss noch gemacht werden
           return true;
+     }
+
+     public void werwolfsterben(){
+          int großtestimmeanzahl=0;
+          ArrayList<Character> schuldige = new ArrayList<>();
+          for (int i = 0; i < Werwolf.werwolfopfer.size(); i++) {
+               if (Werwolf.werwolfopfer.get(i).getStimmen() >= großtestimmeanzahl) {
+                    if (Werwolf.werwolfopfer.get(i).getStimmen() == großtestimmeanzahl) {
+                         schuldige.add(Werwolf.werwolfopfer.get(i));
+                    } else {
+                         großtestimmeanzahl = Werwolf.werwolfopfer.get(i).getStimmen();
+                         schuldige.clear();
+                         schuldige.add(Werwolf.werwolfopfer.get(i));
+                    }
+               }
+          }
+          Character toter = schuldige.get((int) (Math.random() * schuldige.size()));
+          toter.setLeben(0);
+          Werwolf.werwolfopfer.clear();
      }
 }

@@ -208,9 +208,19 @@ public abstract class Character {
 
     public void sterben(){
         Erzaehler.totespieler.add(this);
-        System.out.println("spieler "+ spieler +". Du bist aus dem Dorf gescheucht worden." );
+        if(Erzaehler.tagnacht) {
+            System.out.println("spieler " + spieler + ". Du bist aus dem Dorf gescheucht worden.");
+        }else{
+            System.out.println("spieler " + spieler + ". Du wurdest in Nacht ermordet.");
+        }
+        //Liebespater stribt, wenn er einen hat
         if (Liebespatner!=null){
+            Liebespatner.setLiebespatner(null);
             Liebespatner.sterben();
+        }
+        //Lässt die Schlafwandlerin sterben wenn sie bei dem Opfer gestorben ist.
+        if (Schlafwandlerin!=null){
+            Schlafwandlerin.sterben();
         }
         for (int i = 0; i < spielendecharactere.length; i++) {
             if (spielendecharactere[i] == this) {
@@ -221,7 +231,8 @@ public abstract class Character {
                 for (int c = 0; c < spielendecharactere.length - 1; c++) {
                     speicher[c] = spielendecharactere[c];
                 }
-                spielendecharactere = speicher;
+                Erzaehler.spielendecharactere=new Character[speicher.length];
+                Erzaehler.spielendecharactere = speicher;
             }
         }
     }

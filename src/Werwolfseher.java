@@ -19,7 +19,6 @@ public class Werwolfseher extends Character{
    public void Feahikeit(){
         // Abfrage ob er sabortiert wurde.
         if (!Sabotirt){
-            if (Reinfolge==8) {
                 // Abfrage welcher Spieler angeschaut werden soll
                 System.out.println("Von welchem Spieler möchtest du die Rolle sehen?");
                 int gesuchterspieler = scanner.nextInt();
@@ -33,17 +32,11 @@ public class Werwolfseher extends Character{
                     //Ansonsten die reale Figur
                     System.out.println("Der erblickte Spieler ist " + erblickteklasse);
                 }
-                Reinfolge=9;
-                erzaehler.sotiren();
-            }else{
                 System.out.println("Wähle den Spieler den gerne verspeisen möchtest.");
-                int gesuchterspieler = scanner.nextInt();
+                gesuchterspieler = scanner.nextInt();
                 Character speicher= findspieler(gesuchterspieler);
                 Werwolf.werwolfopfer.add(speicher);
                 speicher.changeStimmen();
-                Reinfolge=8;
-
-            }
         }else{
             // // Falls er sabortiert wird wird die sabortation zurück gesetzt
             Sabotirt=false;

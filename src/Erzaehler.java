@@ -3,6 +3,7 @@ import java.util.List;
 import java.util.Random;
 
 public class Erzaehler {
+     public static boolean tagnacht; //true=tag false=nacht
      public static Character[] spielendecharactere;
      private List<Character> moeglicheWerwolfcharacter;
      private List<Character> moeglicheDorfbewohner;
@@ -119,6 +120,7 @@ public class Erzaehler {
           this.characktereerstellen();
 
           while (!this.spielvorbei()) {
+               tagnacht=false;
                this.sotiren();
                werwoelfevorbei=false;
                for (int i = 0; i < spielendecharactere.length; i++) {
@@ -142,10 +144,11 @@ public class Erzaehler {
                       value.sterben();
                   }
               }
+              tagnacht=true;
 
                     //Beginn des Tages und abstimmungen//
               for (Character character : spielendecharactere) {
-                   character.setLiebespatner(null);
+                   character.setSchlafwandlerin(null);
               }
                System.out.println("Der Tag hat begonnen");
                this.charackteremischen();
@@ -228,9 +231,10 @@ public class Erzaehler {
                          schuldige.add(Werwolf.werwolfopfer.get(i));
                     }
                }
+          }if(!schuldige.isEmpty()) {
+               Character toter = schuldige.get((int) (Math.random() * schuldige.size()));
+               toter.setLeben(0);
+               Werwolf.werwolfopfer.clear();
           }
-          Character toter = schuldige.get((int) (Math.random() * schuldige.size()));
-          toter.setLeben(0);
-          Werwolf.werwolfopfer.clear();
      }
 }

@@ -121,15 +121,18 @@ public class Erzaehler {
 
           while (!this.spielvorbei()) {
                tagnacht=false;
+               //sortiert das Array der spielende Charakter nach der Reihenfolge in welcher diese in der Nacht aufwachen
                this.sotiren();
                werwoelfevorbei=false;
                for (int i = 0; i < spielendecharactere.length; i++) {
                     if (spielendecharactere[i].getReinfolge() < 15) {
+                         //so ballt alle Werwölfe dran waren, wird zufällig ein Opfer aus der Liste der moeglichen Opfer gewaehlt
                          if (spielendecharactere[i].getReinfolge()>9&&!werwoelfevorbei) {
                               werwolfsterben();
                               werwoelfevorbei=true;
                          }
                          System.out.println("Spieler " + spielendecharactere[i].getSpieler() + ", du bist dran. Du bist " + spielendecharactere[i].getClasse());
+                         //Aktiviert die Fahikeit des Charakteres der, der Reihenfolge entsprechend, dran ist.
                          spielendecharactere[i].Feahikeit();
 
                     }

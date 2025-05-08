@@ -208,6 +208,8 @@ public abstract class Character {
 
     public void sterben(){
         Erzaehler.totespieler.add(this);
+
+        //Unterscheidet, ob Tag oder Nacht ist und gibt eine endsprechende Todesnachricht aus
         if(Erzaehler.tagnacht) {
             System.out.println("spieler " + spieler + ". Du bist aus dem Dorf gescheucht worden.");
         }else{
@@ -223,14 +225,18 @@ public abstract class Character {
             Schlafwandlerin.sterben();
         }
         for (int i = 0; i < spielendecharactere.length; i++) {
+            //geht das Array der Spielenden Charactere durch, bis der zu sterbende Spieler gefunden wurde
             if (spielendecharactere[i] == this) {
+                //Rueckt alle Objekte nach dem zu sterbenden Spieler ein Platzt nach vorne
                 for (int b = i; b < spielendecharactere.length - 1; b++) {
                     spielendecharactere[b] = spielendecharactere[b + 1];
                 }
+                //uebertraegt alle Objekte aus Spielende Charaktere in ein temporaeres Array damit Spielendecharctere um ein Platz in der Laenge verringert werden kann
                 Character[] speicher = new Character[spielendecharactere.length - 1];
                 for (int c = 0; c < spielendecharactere.length - 1; c++) {
                     speicher[c] = spielendecharactere[c];
                 }
+                //Uebertraegt die Objekte aus dem temporaerem array zurueck in spielendecharactere
                 Erzaehler.spielendecharactere=new Character[speicher.length];
                 Erzaehler.spielendecharactere = speicher;
             }

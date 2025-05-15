@@ -202,10 +202,15 @@ public abstract class Character {
             }
         }
         // falls ein nicht exesiztenter spieler
-        // angegeben wird wird der Letzte spiler zurückgegeben damit das Programm nicht abstürzt
+        // angegeben wird, wird der Letzte spiler zurückgegeben damit das Programm nicht abstürzt
         return spielendecharactere[spielendecharactere.length-1];
     }
 
+
+    /**entfernt das Element aus dem Array spielendecharactere und fügt es der Liste der Totenspieler hinzu.
+     * Sollte das Objekt verliebt sein so wird auch der Liebespartner herausgeworfen .
+     * Selbes gilt fuer die Schlafwandlerin
+     */
     public void sterben(){
         Erzaehler.totespieler.add(this);
 

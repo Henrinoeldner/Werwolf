@@ -17,14 +17,14 @@ public class Seherin extends Character{
      * (Außer der Schattenwerwolf wird betrachtet, dann wird Dorfbewohner ausgegeben)
      */
     public void Feahikeit(){
-        // Abfrage ob er sabortiert wurde.
+        // Abfrage, ob er sabortiert wurde.
         if (!Sabotirt&&Leben>0){
             // Abfrage welcher Spieler angeschaut werden soll
             System.out.println("Von welchem Spieler möchtest du die Rolle sehen?");
             int gesuchterspieler = scanner.nextInt();
             // Spieler wird angeschaut
             String erblickteklasse = findspieler(gesuchterspieler).getClasse();
-            // Abfrage ob der angeschaute Spieler Schattenwerwolf ist (kann nicht angeschaut werden)
+            // Abfrage, ob der angeschaute Spieler Schattenwerwolf ist (kann nicht angeschaut werden)
             if (erblickteklasse.equals("Schattenwerwolf")){
                 //Falls sschattenwerwolf wird Dorfbewohner angezeigt
                 System.out.println("Der erblickte Spieler ist Dorfbewohner");
@@ -33,7 +33,7 @@ public class Seherin extends Character{
                 System.out.println("Der erblickte Spieler ist "+erblickteklasse);
             }
         }else{
-            // // Falls er sabortiert wird wird die sabortation zurück gesetzt
+            // // Falls er sabortiert wird, wird die sabortation zurück gesetzt
             Sabotirt=false;
             System.out.println("HAHA");
         }

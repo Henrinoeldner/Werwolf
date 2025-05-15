@@ -13,6 +13,7 @@ public class Erzaehler {
           moeglicheWerwolfcharacter=new ArrayList<>();
           moeglicheDorfbewohner=new ArrayList<>();
           spielendecharactere = new Character[pAnzahanspielern];
+          totespieler=new ArrayList<>();
           moeglicheWerwolfcharacter.add(new Werwolf());
           moeglicheWerwolfcharacter.add(new BlinderWerwolf());
           moeglicheWerwolfcharacter.add(new Weißerwerwolf());
@@ -96,7 +97,7 @@ public class Erzaehler {
      }
 
      /**
-      * Mischt das Array der spielenden Charactern
+      * Mischt das Array der spielenden Charactern, indem jeder Platz in dem Array spielendecharactere mit einem anderen zufälligen Platzt getauscht wird.
       */
      public void charackteremischen(){
           Character charecterspeicher;
@@ -111,7 +112,12 @@ public class Erzaehler {
      }
 
      /**
-      * Geht den Spielablauf durch (Nachts alle Fähigkeiten und Tags die Abstimmung)
+      * Geht den Spielablauf durch. Zuerst werde alle Faehigkeiten aller teilnehmenden Charactere durch und
+      * entfernt alle Charactere, deren Leben >=0 sind.
+      * Anschließend werden alle Spieler gefragt welchen anderen Spieler sie Anklagen möchten. Diese werden
+      * in einer Liste gespeichert (sollten sie nicht bereits enthalten sein), worauf hin erneut abgestimmt wird
+      * welcher der, in der Liste enthaltenen Spieler, endgueltig herausgeworfen wird. Dieser wird dann aus dem
+      * Array spielendecharactere entfernt wird.
       */
      public void spielen(){
           boolean werwoelfevorbei;
@@ -178,7 +184,7 @@ public class Erzaehler {
                          if (spielerplatz < stimmen.size()) {
                               stimmen.set(spielerplatz, stimmen.get(spielerplatz) + 1);
                          } else {
-                              System.out.println("Da dein eingegebene Zahl größer war als die anzahl der angeklagten Spieler wird deine Wahl nicht gewertet");
+                              System.out.println("Da dein eingegebene Zahl größer war als die Anzahl der angeklagten Spieler wird deine Wahl nicht gewertet");
                          }
                     }
 
@@ -207,7 +213,10 @@ public class Erzaehler {
      }
 
 
-
+     /**
+      * Ueberprueft, ob eins der Teams gewonnen hat
+      * @return true, wenn nur noch ein Team uebrig ist
+      */
      private boolean spielvorbei(){
           int erstesteam;
           erstesteam= spielendecharactere[0].getTeam();
@@ -221,6 +230,10 @@ public class Erzaehler {
           return true;
      }
 
+
+     /** Einer der von den Werwoelfen gewaehlten Opfer wird per Zufallsverfahren herausgeworfen
+      *
+      */
      public void werwolfsterben(){
           int großtestimmeanzahl=0;
           ArrayList<Character> schuldige = new ArrayList<>();

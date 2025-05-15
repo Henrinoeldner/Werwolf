@@ -18,6 +18,7 @@ public class Erzaehler {
           moeglicheWerwolfcharacter.add(new BlinderWerwolf());
           moeglicheWerwolfcharacter.add(new Weißerwerwolf());
           moeglicheWerwolfcharacter.add(new Werwolfseher(this));
+          moeglicheWerwolfcharacter.add(new SchattenWerwolf());
 
 
           moeglicheDorfbewohner.add(new Dorfbewohner());

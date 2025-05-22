@@ -19,6 +19,7 @@ public class Jeager extends Character{
             findspieler(scanner.nextInt()).sterben();
         }else{
             System.out.println("Du wurdest sabotiert und kannst deinen Fähigkeit nicht benutzten");
+            Sabotirt=false;
         }
 
     }

@@ -9,8 +9,17 @@ public class Jeager extends Character{
         Team=1;
         Reinfolge=15;
     }
-    public void Feahikeit(){
 
+    /**
+     * Der Spieler kann sich ein Spieler aussuchen der dann stirbt
+     */
+    public void Feahikeit(){
+        if(!Sabotirt){
+            System.out.println("Welchen spieler möchtest du it deinem letzten Atemzug noch erschießen?");
+            findspieler(scanner.nextInt()).sterben();
+        }else{
+            System.out.println("Du wurdest sabotiert und kannst deinen Fähigkeit nicht benutzten");
+        }
 
     }
 }

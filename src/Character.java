@@ -212,6 +212,7 @@ public abstract class Character {
      * Selbes gilt fuer die Schlafwandlerin
      */
     public void sterben(){
+        Leben=0;
         Erzaehler.totespieler.add(this);
 
         //Unterscheidet, ob Tag oder Nacht ist und gibt eine endsprechende Todesnachricht aus

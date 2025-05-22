@@ -24,7 +24,7 @@ public class Schlafwandlerin extends Character{
             findspieler(gesuchterspieler).setSchlafwandlerin(this);
         }else{
             Sabotirt=false;
-            // Falls er sabortiert wird wird die sabortation zurück gesetzt
+            // Falls er sabortiert wird, wird die Sabortation zurückgesetzt
            System.out.println("HAHA wurdest sabortiert");
         }
     }
